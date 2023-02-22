@@ -9,5 +9,12 @@
       </mat-nav-list>
     </mat-card-content>
   </mat-card>
+  <!--Buttons to move between pages to see more books. Between them is a page number of a current page.--->
+  <div class="buttonsContainer">
+    <button (click)="previousPage()"><</button>
+    <p>{{pageNumber$}}</p>
+    <button (click)="nextPage()">></button>
+  </div>
 </div>
+
 

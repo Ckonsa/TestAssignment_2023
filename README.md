@@ -6,7 +6,7 @@ This is the project template which contains Angular front-end and Spring Boot ba
 ## Setting up Spring Boot application.
 
 1. Make sure you have installed Java. For development OpenJDK 11 from [Adoptium](https://adoptium.net/) should be used.
-2. Install Intellij IDEA Commmunity edition
+2. Install Intellij IDEA Community edition
 3. Import the Maven project
 4. Run the LibraryApplication from IDE.
 
@@ -55,7 +55,7 @@ If you have any questions, please reach out without hesitation. Best of luck!
 ## Development tasks
 
 * Using backend api endpoint /getBooks, implement table of books view
-* Using backend api endpoint /getCheckouts, also implement the checkouts view. Suppport paging and sorting for both views
+* Using backend api endpoint /getCheckouts, also implement the checkouts view. Support paging and sorting for both views
 * Implement individual book and checkout view, support basic CRUD operations, implement checking out and returning books
 * Implement searching for books using freetext criteria
 * Implement filtering for books by status
@@ -74,5 +74,6 @@ but should be able to save favorites and check out / return books (that they hav
 
 ## Implementation of tasks by Charleen Konsa
 
-* First task ...
+* The first thing I wanted to implement were the pages of books. At the first there was only one 20-item page shown, so I added buttons to move between pages and see all the 1000 books.
+* 
 
