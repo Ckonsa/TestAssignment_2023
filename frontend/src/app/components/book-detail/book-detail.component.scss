@@ -1,0 +1,26 @@
+.infoContainer {
+  display: flex;
+}
+.bookInfo {
+  flex: 1;
+  margin: 3em;
+  width: 75%;
+}
+.statusInfo {
+  margin: 3em 3em 3em 0;
+  width: 25%;
+}
+mat-card-title {
+  padding: 1em;
+}
+.biggerText {
+  font-size: 18px;
+}
+.available {
+  font-size: 25px;
+  color: green;
+}
+.unavailable {
+  font-size: 25px;
+  color: red;
+}

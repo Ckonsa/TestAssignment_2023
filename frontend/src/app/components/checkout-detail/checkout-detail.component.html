@@ -1,0 +1,21 @@
+<div class="infoContainer">
+  <div class="bookInfo">
+    <mat-card *ngIf="(checkout$ | async) as checkout">
+      <mat-card-title>Checkout</mat-card-title>
+      <mat-card-content>
+        <p><span class="biggerText">Last name: </span>{{checkout.borrowerLastName}}</p>
+        <p><span class="biggerText">First name: </span>{{checkout.borrowerFirstName}}</p>
+        <p><span class="biggerText">Book: </span>{{checkout.borrowedBook.title}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="statusInfo">
+    <mat-card *ngIf="(checkout$ | async) as cheksout">
+      <mat-card-title>Status</mat-card-title>
+      <mat-card-content>
+        <span><span class="biggerText">Checkout Date: </span>{{cheksout.checkedOutDate}}</span>
+        <p><span class="biggerText">Due date: </span>{{cheksout.dueDate}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
