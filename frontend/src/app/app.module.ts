@@ -10,6 +10,8 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { HttpClientModule } from '@angular/common/http';
 import { CheckoutsListComponent } from './components/checkouts-list/checkouts-list.component';
 import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,17 @@ import { CheckoutDetailComponent } from './components/checkout-detail/checkout-d
     BooksListComponent,
     BookDetailComponent,
     CheckoutsListComponent,
-    CheckoutDetailComponent
+    CheckoutDetailComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

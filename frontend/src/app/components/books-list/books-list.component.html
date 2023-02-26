@@ -15,6 +15,11 @@
     <p>{{pageNumber$}}</p>
     <button (click)="nextPage()">></button>
   </div>
+  <div class="buttonsContainer">
+    <button (click)="goToPage()">Go To Page</button>
+    <input id="goToPageNumber" type="number" min="1" max="{{pagesTotal$}}" placeholder="{{pageNumber$}}">
+  </div>
 </div>
+<button class="addBookButton" [routerLink]="['/addBook']">Add A Book</button>
 
 
