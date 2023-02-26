@@ -28,7 +28,7 @@ export class BooksListComponent implements OnInit {
   previousPage(): void { // Function to move to the previous page
     this.pageNumber$ -= 1;
     if (this.pageNumber$ <= 0) {
-      this.pageNumber$ = this.pagesTotal$; // This should be a variable, so if there would be less or more pages it would still work
+      this.pageNumber$ = this.pagesTotal$;
     }
     this.books$ = this.bookService.getBooks({pageIndex: this.pageNumber$ - 1}); // Updates shown page
   }

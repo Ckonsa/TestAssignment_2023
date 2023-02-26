@@ -6,16 +6,27 @@
         <p><span class="biggerText">Last name: </span>{{checkout.borrowerLastName}}</p>
         <p><span class="biggerText">First name: </span>{{checkout.borrowerFirstName}}</p>
         <p><span class="biggerText">Book: </span>{{checkout.borrowedBook.title}}</p>
+        <br>
+        <p><span class="biggerText">DETAILS</span></p>
+        <p>ID: {{checkout.id}}</p>
+        <p>Book ID: {{checkout.borrowedBook.id}}</p>
       </mat-card-content>
     </mat-card>
   </div>
   <div class="statusInfo">
-    <mat-card *ngIf="(checkout$ | async) as cheksout">
+    <mat-card *ngIf="(checkout$ | async) as checkout">
       <mat-card-title>Status</mat-card-title>
       <mat-card-content>
-        <span><span class="biggerText">Checkout Date: </span>{{cheksout.checkedOutDate}}</span>
-        <p><span class="biggerText">Due date: </span>{{cheksout.dueDate}}</p>
+        <span><span class="biggerText">Checkout Date: </span>{{checkout.checkedOutDate}}</span>
+        <p><span class="biggerText">Due date: </span>{{checkout.dueDate}}</p>
       </mat-card-content>
     </mat-card>
+  </div>
+</div>
+<div class="buttonsContainer">
+  <button>Return</button>
+  <div>
+    <button>Change</button>
+    <button>Delete</button>
   </div>
 </div>

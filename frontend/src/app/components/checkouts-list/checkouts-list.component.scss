@@ -16,6 +16,16 @@ p {
   font-size: 20px;
   margin: 0 2em 0 2em;
 }
+mat-card-title {
+  margin-top: 1em;
+  margin-left: 2em;
+}
+mat-card-content {
+  margin-left: 2em;
+}
+input {
+  width: 3em;
+}
 .lateCheckout {
   color: #d62638;
 }

@@ -1,18 +1,24 @@
 <div class="infoContainer">
   <div class="bookInfo">
     <mat-card *ngIf="(book$ | async) as book">
-      <mat-card-title>Book</mat-card-title>
+      <mat-card-title>BOOK</mat-card-title>
       <mat-card-content>
         <p><span class="biggerText">Title: </span>{{book.title}}</p>
         <p><span class="biggerText">Author: </span>{{book.author}}</p>
         <p><span class="biggerText">Genre: </span>{{book.genre}}</p>
         <p><span class="biggerText">Year: </span>{{book.year}}</p>
+        <br>
+        <p><span class="biggerText">DETAILS</span></p>
+        <p>ID: {{book.id}}</p>
+        <p>Added: {{book.added}}</p>
+        <p *ngIf="book.comment!==null">Comment: {{book.comment}}</p>
+        <p>Times checked out: {{book.checkOutCount}}</p>
       </mat-card-content>
     </mat-card>
   </div>
   <div class="statusInfo">
     <mat-card *ngIf="(book$ | async) as book">
-      <mat-card-title>Status</mat-card-title>
+      <mat-card-title>STATUS</mat-card-title>
       <mat-card-content *ngIf="book.status!=='AVAILABLE'">
         <span class="unavailable">{{book.status}}</span>
         <p><span class="biggerText">Due date: </span>{{book.dueDate}}</p>
@@ -21,5 +27,12 @@
         <span class="available">{{book.status}}</span>
       </mat-card-content>
     </mat-card>
+  </div>
+</div>
+<div class="buttonsContainer">
+  <button>Check Out</button>
+  <div>
+    <button>Change</button>
+    <button>Delete</button>
   </div>
 </div>
