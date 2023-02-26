@@ -38,5 +38,10 @@ export class CheckoutsListComponent implements OnInit {
     }
     this.checkouts$ = this.checkoutService.getCheckouts({pageIndex: this.pageNumber$ - 1}); // Updates shown page
   }
-
+  lateCheckout(dueDate: string): boolean {
+    const date: Date = new Date(dueDate);
+    // const dateNow: Date = new Date(); // Using today's date results every checkout to be late checkout
+    const dateNow: Date = new Date('2020-10-05');
+    return dateNow > date;
+  }
 }

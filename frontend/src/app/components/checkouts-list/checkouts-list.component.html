@@ -4,7 +4,12 @@
     <mat-card-content>
       <mat-nav-list *ngIf="(checkouts$ | async) as checkouts">
         <a mat-list-item *ngFor="let checkout of checkouts.content" [routerLink]="['/checkouts', checkout.id]">
-          {{checkout.borrowerLastName}}, {{checkout.borrowerFirstName}}
+          <div class="lateCheckout" *ngIf="lateCheckout(checkout.dueDate) === true">
+            {{checkout.borrowerLastName}}, {{checkout.borrowerFirstName}}
+          </div>
+          <div *ngIf="lateCheckout(checkout.dueDate) === false">
+            {{checkout.borrowerLastName}}, {{checkout.borrowerFirstName}}
+          </div>
         </a>
       </mat-nav-list>
     </mat-card-content>

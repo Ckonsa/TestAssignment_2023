@@ -76,4 +76,6 @@ but should be able to save favorites and check out / return books (that they hav
 
 * The first thing I wanted to implement were the pages of books. At the first there was only one 20-item page shown, so I added buttons to move between pages and see all the 1000 books.
 * Secondly I added checkout view and checkout details view. User can see all checkouts. Both book and checkout detail view is made more readable for user.
+* Right now I am trying to add more functions in the books view, but I got stuck in saving a new book. 
+* I implemented a way to show late checkouts. Persons name, who is late to return a book, is colored red.
 
