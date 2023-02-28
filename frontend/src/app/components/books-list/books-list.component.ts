@@ -39,7 +39,7 @@ export class BooksListComponent implements OnInit {
     }
     this.books$ = this.bookService.getBooks({pageIndex: this.pageNumber$ - 1}); // Updates shown page
   }
-  goToPage(): void {
+  goToPage(): void { // Function to move to any page
     let goToPageNumber = Number((document.getElementById('goToPageNumber') as HTMLInputElement).value);
     if (goToPageNumber > this.pagesTotal$) {
       goToPageNumber = this.pagesTotal$;

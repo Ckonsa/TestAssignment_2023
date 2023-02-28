@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
 import {BookService} from '../../services/book.service';
 import {BookStatus} from '../../models/book-status';
 
@@ -11,7 +10,6 @@ import {BookStatus} from '../../models/book-status';
 })
 export class AddBookComponent{
   constructor(
-    private route: ActivatedRoute,
     private bookService: BookService,
   ) {
   }

@@ -1,6 +1,7 @@
+<div *ngIf="(book$ | async) as book">
 <div class="infoContainer">
   <div class="bookInfo">
-    <mat-card *ngIf="(book$ | async) as book">
+    <mat-card>
       <mat-card-title>BOOK</mat-card-title>
       <mat-card-content>
         <p><span class="biggerText">Title: </span>{{book.title}}</p>
@@ -17,7 +18,7 @@
     </mat-card>
   </div>
   <div class="statusInfo">
-    <mat-card *ngIf="(book$ | async) as book">
+    <mat-card>
       <mat-card-title>STATUS</mat-card-title>
       <mat-card-content *ngIf="book.status!=='AVAILABLE'">
         <span class="unavailable">{{book.status}}</span>
@@ -32,7 +33,8 @@
 <div class="buttonsContainer">
   <button>Check Out</button>
   <div>
-    <button>Change</button>
+    <button [routerLink]="['/changeBook',book.id]">Change</button>
     <button>Delete</button>
   </div>
+</div>
 </div>

@@ -12,6 +12,7 @@ import { CheckoutsListComponent } from './components/checkouts-list/checkouts-li
 import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ChangeBookComponent } from './components/change-book/change-book.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BookDetailComponent,
     CheckoutsListComponent,
     CheckoutDetailComponent,
-    AddBookComponent
+    AddBookComponent,
+    ChangeBookComponent
   ],
   imports: [
     BrowserModule,

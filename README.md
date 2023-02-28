@@ -78,5 +78,6 @@ but should be able to save favorites and check out / return books (that they hav
 * Secondly I added checkout view and checkout details view. User can see all checkouts. Both book and checkout detail view is made more readable for user.
 * Right now I am trying to add more functions in the books view, but I got stuck in saving a new book. 
 * I implemented a way to show late checkouts. Persons name, who is late to return a book, is colored red.
-* Added buttons for changing, deleting, checking out and returning books.
+* Added buttons for changing, deleting, checking out and returning books. No functionality.
+* Looked through all the files to fix some designs and get ideas where I got stuck and how to move forward.
 

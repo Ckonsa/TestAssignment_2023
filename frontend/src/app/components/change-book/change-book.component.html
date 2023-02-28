@@ -1,0 +1,31 @@
+<div class="container mat-elevation-z4">
+  <form [formGroup]="changeBookForm" (ngSubmit)="changeBook()" *ngIf="(book$ | async) as book">
+    <!--Got the basic form template from here: https://www.w3schools.com/howto/howto_css_contact_form.asp --->
+
+    <label>Title</label>
+    <input type="text" formControlName="title" value="{{book.title}}">
+
+    <label>Author</label>
+    <input type="text" formControlName="author" value="{{book.author}}">
+
+    <label>Genre</label>
+    <input type="text" formControlName="genre" value="{{book.genre}}">
+
+    <label>Year</label>
+    <input type="text" formControlName="year" value="{{book.year}}">
+
+    <label>Status</label>
+    <input type="text" formControlName="status" value="{{book.status}}">
+
+    <label>Comment</label>
+    <div *ngIf="book.comment !== null">
+      <input type="text" formControlName="comment" value="{{book.comment}}">
+    </div>
+    <div *ngIf="book.comment === null">
+      <input type="text" formControlName="comment">
+    </div>
+
+    <input type="submit" value="SAVE">
+  </form>
+</div>
+

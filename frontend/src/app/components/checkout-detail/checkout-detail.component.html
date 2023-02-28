@@ -1,10 +1,11 @@
+<div *ngIf="(checkout$ | async) as checkout">
 <div class="infoContainer">
-  <div class="bookInfo">
-    <mat-card *ngIf="(checkout$ | async) as checkout">
-      <mat-card-title>Checkout</mat-card-title>
+  <div class="checkoutInfo">
+    <mat-card>
+      <mat-card-title>CHECKOUT</mat-card-title>
       <mat-card-content>
-        <p><span class="biggerText">Last name: </span>{{checkout.borrowerLastName}}</p>
-        <p><span class="biggerText">First name: </span>{{checkout.borrowerFirstName}}</p>
+        <p><span class="biggerText">Last Name: </span>{{checkout.borrowerLastName}}</p>
+        <p><span class="biggerText">First Name: </span>{{checkout.borrowerFirstName}}</p>
         <p><span class="biggerText">Book: </span>{{checkout.borrowedBook.title}}</p>
         <br>
         <p><span class="biggerText">DETAILS</span></p>
@@ -14,11 +15,11 @@
     </mat-card>
   </div>
   <div class="statusInfo">
-    <mat-card *ngIf="(checkout$ | async) as checkout">
-      <mat-card-title>Status</mat-card-title>
+    <mat-card>
+      <mat-card-title>STATUS</mat-card-title>
       <mat-card-content>
         <span><span class="biggerText">Checkout Date: </span>{{checkout.checkedOutDate}}</span>
-        <p><span class="biggerText">Due date: </span>{{checkout.dueDate}}</p>
+        <p><span class="biggerText">Due Date: </span>{{checkout.dueDate}}</p>
       </mat-card-content>
     </mat-card>
   </div>
@@ -29,4 +30,5 @@
     <button>Change</button>
     <button>Delete</button>
   </div>
+</div>
 </div>

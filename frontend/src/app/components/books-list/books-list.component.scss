@@ -3,14 +3,25 @@
   margin: 3em auto;
   padding: 2em;
 }
+.bottomContainer {
+  max-width: 1024px;
+  margin: 3em auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
 .buttonsContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-top: 2em;
 }
-button {
+.buttonsContainer>button {
   max-width: 15%;
+}
+.bottomContainer>button {
+  min-width: 15%;
 }
 p {
   font-size: 20px;

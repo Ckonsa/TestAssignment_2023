@@ -52,7 +52,7 @@ export class CheckoutsListComponent implements OnInit {
   }
   lateCheckout(dueDate: string): boolean {
     const date: Date = new Date(dueDate);
-    // const dateNow: Date = new Date(); // Using today's date results every checkout to be late checkout
+    // const dateNow: Date = new Date(); // Using today's date results every checkout to be a late checkout
     const dateNow: Date = new Date('2020-10-05');
     return dateNow > date;
   }
