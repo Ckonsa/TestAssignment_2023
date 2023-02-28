@@ -34,7 +34,7 @@
   <button>Check Out</button>
   <div>
     <button [routerLink]="['/changeBook',book.id]">Change</button>
-    <button>Delete</button>
+    <button (click)="openDialog(book.title)">Delete</button>
   </div>
 </div>
 </div>

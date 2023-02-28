@@ -4,6 +4,8 @@ import {ActivatedRoute} from '@angular/router';
 import {map, switchMap} from 'rxjs/operators';
 import {Checkout} from '../../models/checkout';
 import {CheckoutService} from '../../services/checkout.service';
+import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-checkout-detail',
@@ -17,6 +19,7 @@ export class CheckoutDetailComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private checkoutService: CheckoutService,
+    private dialog: MatDialog,
   ) {
   }
 
@@ -24,6 +27,21 @@ export class CheckoutDetailComponent implements OnInit{
     this.checkout$ = this.route.params
       .pipe(map(params => params.id))
       .pipe(switchMap(id => this.checkoutService.getCheckout(id)));
+  }
+
+  openDialog(title: string): void {
+    // Got the code and idea from here: https://www.javachinna.com/angular-confirmation-dialog/
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: 'Do you want to return a book called "' + title + '"?',
+      }
+    });
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        console.log('confirmed');
+      }
+    });
+
   }
 
 }

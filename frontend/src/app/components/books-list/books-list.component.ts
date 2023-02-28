@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
-import { Page } from '../../models/page';
+import {Page, SortDirection} from '../../models/page';
 import { Book } from '../../models/book';
 import {first, Observable} from 'rxjs';
 
@@ -14,6 +14,7 @@ export class BooksListComponent implements OnInit {
   books$: Observable<Page<Book> | Error>;
   pageNumber$: number = Number(1); // The default page is number 1 aka the first page
   pagesTotal$: number;
+  selectedSorting = '';
 
   constructor(
     private bookService: BookService,
@@ -22,7 +23,12 @@ export class BooksListComponent implements OnInit {
 
   ngOnInit(): void {
     // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
-    this.books$ = this.bookService.getBooks({pageIndex: this.pageNumber$ - 1}); // Page numbers go from 0...49
+    if (this.selectedSorting === '') {
+      this.books$ = this.bookService.getBooks({pageIndex: this.pageNumber$ - 1});
+    } else {
+      this.books$ = this.bookService.getBooks({pageIndex:
+          this.pageNumber$ - 1, sort: 'title', direction: this.selectedSorting as SortDirection});
+    }
     this.books$.pipe(first(), ).subscribe(page => {if (!(page instanceof Error)) {this.pagesTotal$ = page.totalPages ; } });
   }
   previousPage(): void { // Function to move to the previous page
@@ -30,14 +36,14 @@ export class BooksListComponent implements OnInit {
     if (this.pageNumber$ <= 0) {
       this.pageNumber$ = this.pagesTotal$;
     }
-    this.books$ = this.bookService.getBooks({pageIndex: this.pageNumber$ - 1}); // Updates shown page
+    this.ngOnInit();
   }
   nextPage(): void { // Function to move to the next page
     this.pageNumber$ += 1;
     if (this.pageNumber$ > this.pagesTotal$) {
       this.pageNumber$ = 1;
     }
-    this.books$ = this.bookService.getBooks({pageIndex: this.pageNumber$ - 1}); // Updates shown page
+    this.ngOnInit();
   }
   goToPage(): void { // Function to move to any page
     let goToPageNumber = Number((document.getElementById('goToPageNumber') as HTMLInputElement).value);
@@ -47,7 +53,11 @@ export class BooksListComponent implements OnInit {
       goToPageNumber = 1;
     }
     this.pageNumber$ = goToPageNumber;
-    this.books$ = this.bookService.getBooks({pageIndex: this.pageNumber$ - 1}); // Updates shown page
+    this.ngOnInit();
+  }
+  onSelected(sorting: string): void {
+    this.selectedSorting = sorting;
+    this.ngOnInit();
   }
 
 }

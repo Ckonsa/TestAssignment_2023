@@ -1,3 +1,11 @@
+<div class="topBottomContainer">
+  <label>Sorting</label>
+  <select #sorting (change)="onSelected(sorting.value)">
+    <option value="">No sorting</option>
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+</div>
 <div class="container mat-elevation-z4">
   <mat-card>
     <mat-card-title>Books</mat-card-title>
@@ -20,7 +28,7 @@
     <input id="goToPageNumber" type="number" min="1" max="{{pagesTotal$}}" placeholder="{{pageNumber$}}">
   </div>
 </div>
-<div class="bottomContainer">
+<div class="topBottomContainer">
   <button class="addBookButton" [routerLink]="['/addBook']">Add A Book</button>
 </div>
 

@@ -13,6 +13,7 @@ import { CheckoutDetailComponent } from './components/checkout-detail/checkout-d
 import { AddBookComponent } from './components/add-book/add-book.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ChangeBookComponent } from './components/change-book/change-book.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ChangeBookComponent } from './components/change-book/change-book.compon
     CheckoutsListComponent,
     CheckoutDetailComponent,
     AddBookComponent,
-    ChangeBookComponent
+    ChangeBookComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,

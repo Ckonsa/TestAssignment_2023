@@ -1,3 +1,11 @@
+<div class="topBottomContainer">
+  <label>Sorting</label>
+  <select #sorting (change)="onSelected(sorting.value)">
+    <option value="">No sorting</option>
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+</div>
 <div class="container mat-elevation-z4">
   <mat-card>
     <mat-card-title>Checkouts</mat-card-title>

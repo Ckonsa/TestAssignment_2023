@@ -80,4 +80,5 @@ but should be able to save favorites and check out / return books (that they hav
 * I implemented a way to show late checkouts. Persons name, who is late to return a book, is colored red.
 * Added buttons for changing, deleting, checking out and returning books. No functionality.
 * Looked through all the files to fix some designs and get ideas where I got stuck and how to move forward.
-
+* Added a way to delete books and return books. When clicking delete/return button conformation dialog pops up, but after confirming the deleting does not work.
+* Added ascending and descending sorting for book and checkout list.

@@ -32,7 +32,6 @@ export class BookService {
 
   saveBook(book: Book): Observable<void | Error> {
     const url = this.baseUrl + '/saveBook';
-    console.log(url);
     return this.http.post<void>(url, book);
   }
 

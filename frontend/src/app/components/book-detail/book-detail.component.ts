@@ -4,6 +4,8 @@ import { Book } from '../../models/book';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
+import {MatDialog} from '@angular/material/dialog';
+import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-book-detail',
@@ -17,6 +19,7 @@ export class BookDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
+    private dialog: MatDialog,
   ) {
   }
 
@@ -24,6 +27,25 @@ export class BookDetailComponent implements OnInit {
     this.book$ = this.route.params
       .pipe(map(params => params.id))
       .pipe(switchMap(id => this.bookService.getBook(id)));
+  }
+  openDialog(title: string): void {
+    // Got the code and idea from here: https://www.javachinna.com/angular-confirmation-dialog/
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: 'Do you want to delete a book called "' + title + '"?',
+      }
+    });
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.deleteBook();
+      }
+    });
+
+  }
+  deleteBook(): void {
+    this.route.params
+      .pipe(map(params => params.id))
+      .pipe(switchMap(id => this.bookService.deleteBook(id)));
   }
 
 }

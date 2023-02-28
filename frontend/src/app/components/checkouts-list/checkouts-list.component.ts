@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {first, Observable} from 'rxjs';
-import {Page} from '../../models/page';
+import {Page, SortDirection} from '../../models/page';
 import {CheckoutService} from '../../services/checkout.service';
 import {Checkout} from '../../models/checkout';
 
@@ -14,6 +14,7 @@ export class CheckoutsListComponent implements OnInit {
   checkouts$: Observable<Page<Checkout> | Error>;
   pageNumber$: number = Number(1); // The default page is number 1 aka the first page
   pagesTotal$: number;
+  selectedSorting = '';
 
   constructor(
     private checkoutService: CheckoutService,
@@ -22,7 +23,12 @@ export class CheckoutsListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.checkoutService.getCheckouts({}));
-    this.checkouts$ = this.checkoutService.getCheckouts({pageIndex: this.pageNumber$ - 1});
+    if (this.selectedSorting === '') {
+      this.checkouts$ = this.checkoutService.getCheckouts({pageIndex: this.pageNumber$ - 1});
+    } else {
+      this.checkouts$ = this.checkoutService.getCheckouts({pageIndex:
+          this.pageNumber$ - 1, sort: 'borrowerLastName', direction: this.selectedSorting as SortDirection});
+    }
     this.checkouts$.pipe(first(), ).subscribe(page => {if (!(page instanceof Error)) {this.pagesTotal$ = page.totalPages ; } });
 
   }
@@ -55,5 +61,9 @@ export class CheckoutsListComponent implements OnInit {
     // const dateNow: Date = new Date(); // Using today's date results every checkout to be a late checkout
     const dateNow: Date = new Date('2020-10-05');
     return dateNow > date;
+  }
+  onSelected(sorting: string): void {
+    this.selectedSorting = sorting;
+    this.ngOnInit();
   }
 }
