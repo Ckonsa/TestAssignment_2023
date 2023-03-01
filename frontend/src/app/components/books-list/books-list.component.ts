@@ -15,6 +15,7 @@ export class BooksListComponent implements OnInit {
   pageNumber$: number = Number(1); // The default page is number 1 aka the first page
   pagesTotal$: number;
   selectedSorting = '';
+  selectedSortingBy = 'title';
 
   constructor(
     private bookService: BookService,
@@ -27,7 +28,7 @@ export class BooksListComponent implements OnInit {
       this.books$ = this.bookService.getBooks({pageIndex: this.pageNumber$ - 1});
     } else {
       this.books$ = this.bookService.getBooks({pageIndex:
-          this.pageNumber$ - 1, sort: 'title', direction: this.selectedSorting as SortDirection});
+          this.pageNumber$ - 1, sort: this.selectedSortingBy, direction: this.selectedSorting as SortDirection});
     }
     this.books$.pipe(first(), ).subscribe(page => {if (!(page instanceof Error)) {this.pagesTotal$ = page.totalPages ; } });
   }
@@ -55,8 +56,9 @@ export class BooksListComponent implements OnInit {
     this.pageNumber$ = goToPageNumber;
     this.ngOnInit();
   }
-  onSelected(sorting: string): void {
-    this.selectedSorting = sorting;
+  onSelected(sort: string, sortBy: string): void {
+    this.selectedSorting = sort;
+    this.selectedSortingBy = sortBy;
     this.ngOnInit();
   }
 

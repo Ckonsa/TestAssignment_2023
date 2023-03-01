@@ -49,22 +49,22 @@ export class CheckoutBookComponent implements OnInit{
   }
   checkoutBook(): void {
     const todaysDate = new Date();
-    const tomorrowsDate = new Date(todaysDate.setDate(todaysDate.getDate() + 1)).toISOString().slice(0, 10);
+    const nextMonthDate = new Date(todaysDate.setDate(todaysDate.getDate() + 30)).toISOString().slice(0, 10);
     const checkout = {
       id: null,
       borrowerFirstName: this.checkoutBookForm.value.fname,
       borrowerLastName: this.checkoutBookForm.value.lname,
       borrowedBook: this.book.id,
       checkedOutDate: todaysDate.toISOString().slice(0, 10),
-      dueDate: tomorrowsDate,
+      dueDate: nextMonthDate,
     };
     this.book.status = 'BORROWED';
-    this.book.dueDate = tomorrowsDate;
+    this.book.dueDate = nextMonthDate;
     this.checkoutService.saveCheckout(checkout);
     this.bookService.saveBook(this.book);
     this.dialog.open(ConfirmationDialogComponent, {
       data: {
-        message: 'The book has been checked out. Due date is ' + tomorrowsDate + '.',
+        message: 'The book has been checked out. Due date is ' + nextMonthDate + '.',
         buttonText: {ok: 'OK', cancel: 'noMessage'}
       }
     });

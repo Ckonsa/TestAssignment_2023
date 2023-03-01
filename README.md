@@ -83,4 +83,4 @@ but should be able to save favorites and check out / return books (that they hav
 * Added a way to delete books and return books. When clicking delete/return button conformation dialog pops up, but after confirming the deleting does not work.
 * Added ascending and descending sorting for book and checkout list.
 * Added forms to places which needed them (changing books/checkouts, checking out a book). There is a problem with communication between front- and backend. Deleting elements and adding new elements to database does not work.
-* 
+* Added more specific sorting in book and checkout list

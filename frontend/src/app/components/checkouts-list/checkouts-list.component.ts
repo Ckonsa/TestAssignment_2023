@@ -15,6 +15,7 @@ export class CheckoutsListComponent implements OnInit {
   pageNumber$: number = Number(1); // The default page is number 1 aka the first page
   pagesTotal$: number;
   selectedSorting = '';
+  selectedSortingBy = 'borrowerLastName';
 
   constructor(
     private checkoutService: CheckoutService,
@@ -27,7 +28,7 @@ export class CheckoutsListComponent implements OnInit {
       this.checkouts$ = this.checkoutService.getCheckouts({pageIndex: this.pageNumber$ - 1});
     } else {
       this.checkouts$ = this.checkoutService.getCheckouts({pageIndex:
-          this.pageNumber$ - 1, sort: 'borrowerLastName', direction: this.selectedSorting as SortDirection});
+          this.pageNumber$ - 1, sort: this.selectedSortingBy, direction: this.selectedSorting as SortDirection});
     }
     this.checkouts$.pipe(first(), ).subscribe(page => {if (!(page instanceof Error)) {this.pagesTotal$ = page.totalPages ; } });
 
@@ -62,8 +63,9 @@ export class CheckoutsListComponent implements OnInit {
     const dateNow: Date = new Date('2020-10-05');
     return dateNow > date;
   }
-  onSelected(sorting: string): void {
-    this.selectedSorting = sorting;
+  onSelected(sort: string, sortBy: string): void {
+    this.selectedSorting = sort;
+    this.selectedSortingBy = sortBy;
     this.ngOnInit();
   }
 }

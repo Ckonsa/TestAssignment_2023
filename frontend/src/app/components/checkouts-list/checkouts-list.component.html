@@ -1,6 +1,11 @@
 <div class="topBottomContainer">
-  <label>Sorting</label>
-  <select #sorting (change)="onSelected(sorting.value)">
+  <label>Sorting by</label>
+  <select #sortBy (change)="onSelected(sort.value, sortBy.value)">
+    <option value="borrowerLastName">Last name</option>
+    <option value="borrowerFirstName">First name</option>
+    <option value="dueDate">Due date</option>
+  </select>
+  <select #sort (change)="onSelected(sort.value, sortBy.value)">
     <option value="">No sorting</option>
     <option value="asc">Ascending</option>
     <option value="desc">Descending</option>
