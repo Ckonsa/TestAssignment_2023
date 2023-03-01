@@ -31,7 +31,8 @@
   </div>
 </div>
 <div class="buttonsContainer">
-  <button>Check Out</button>
+  <button *ngIf="book.status==='AVAILABLE'" [routerLink]="['/checkoutBook',book.id]">Check Out</button>
+  <button *ngIf="book.status!=='AVAILABLE'" disabled>Check Out</button>
   <div>
     <button [routerLink]="['/changeBook',book.id]">Change</button>
     <button (click)="openDialog(book.title)">Delete</button>

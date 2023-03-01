@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {BookService} from '../../services/book.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BookStatus} from '../../models/book-status';
-import {Observable} from 'rxjs';
+import {first, Observable} from 'rxjs';
 import {Book} from '../../models/book';
 import {map, switchMap} from 'rxjs/operators';
 
@@ -14,6 +14,7 @@ import {map, switchMap} from 'rxjs/operators';
 })
 export class ChangeBookComponent implements OnInit{
   book$: Observable<Book | Error>;
+  book: Book;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,24 +26,27 @@ export class ChangeBookComponent implements OnInit{
     author: new FormControl('', Validators.required),
     genre: new FormControl('', Validators.required),
     year: new FormControl('', Validators.required),
+    status: new FormControl('', Validators.required),
+    comment: new FormControl(''),
   });
   ngOnInit(): void {
     this.book$ = this.route.params
       .pipe(map(params => params.id))
       .pipe(switchMap(id => this.bookService.getBook(id)));
+    this.book$.pipe(first(), ).subscribe(book => {if (!(book instanceof Error)) {this.book = book ; }});
   }
   changeBook(): void {
     const book = {
-      id: null,
+      id: this.book.id,
       name: this.changeBookForm.value.title,
       author: this.changeBookForm.value.author,
       genre: this.changeBookForm.value.genre,
       year: Number(this.changeBookForm.value.year),
-      added: new Date().toString().slice(0, 10),
-      checkOutCount: 0,
-      status: 'AVAILABLE' as BookStatus,
-      dueDate: null,
-      comment: null,
+      added: this.book.added,
+      checkOutCount: this.book.checkOutCount,
+      status: this.changeBookForm.value.status as BookStatus,
+      dueDate: this.book.dueDate,
+      comment: this.changeBookForm.value.comment,
     };
     this.bookService.saveBook(book);
   }

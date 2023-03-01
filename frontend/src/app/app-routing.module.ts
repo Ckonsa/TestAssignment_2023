@@ -6,6 +6,8 @@ import {CheckoutsListComponent} from './components/checkouts-list/checkouts-list
 import {CheckoutDetailComponent} from './components/checkout-detail/checkout-detail.component';
 import {AddBookComponent} from './components/add-book/add-book.component';
 import {ChangeBookComponent} from './components/change-book/change-book.component';
+import {CheckoutBookComponent} from './components/checkout-book/checkout-book.component';
+import {ChangeCheckoutComponent} from './components/change-checkout/change-checkout.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'books', pathMatch: 'full'},
@@ -13,8 +15,10 @@ const routes: Routes = [
   {path: 'books/:id', component: BookDetailComponent},
   {path: 'addBook', component: AddBookComponent},
   {path: 'changeBook/:id', component: ChangeBookComponent},
+  {path: 'checkoutBook/:id', component: CheckoutBookComponent},
   {path: 'checkouts', component: CheckoutsListComponent},
-  {path: 'checkouts/:id', component: CheckoutDetailComponent}
+  {path: 'checkouts/:id', component: CheckoutDetailComponent},
+  {path: 'changeCheckout/:id', component: ChangeCheckoutComponent}
 ];
 
 @NgModule({

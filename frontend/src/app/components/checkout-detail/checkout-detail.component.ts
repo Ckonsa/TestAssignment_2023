@@ -6,6 +6,7 @@ import {Checkout} from '../../models/checkout';
 import {CheckoutService} from '../../services/checkout.service';
 import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import {BookService} from '../../services/book.service';
 
 @Component({
   selector: 'app-checkout-detail',
@@ -14,11 +15,10 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class CheckoutDetailComponent implements OnInit{
   checkout$: Observable<Checkout | Error>;
-
-
   constructor(
     private route: ActivatedRoute,
     private checkoutService: CheckoutService,
+    private bookService: BookService,
     private dialog: MatDialog,
   ) {
   }
@@ -41,7 +41,7 @@ export class CheckoutDetailComponent implements OnInit{
         console.log('confirmed');
       }
     });
-
+  // Book's status and due date should be changed
   }
 
 }

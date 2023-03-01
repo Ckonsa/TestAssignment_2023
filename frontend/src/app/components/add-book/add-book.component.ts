@@ -22,12 +22,12 @@ export class AddBookComponent{
 
   addBook(): void {
     const book = {
-      id: null,
+      id: null, // Should get a unique id somehow
       name: this.addBookForm.value.title,
       author: this.addBookForm.value.author,
       genre: this.addBookForm.value.genre,
       year: Number(this.addBookForm.value.year),
-      added: new Date().toString().slice(0, 10),
+      added: new Date().toString().slice(0, 10), // Takes today's date
       checkOutCount: 0,
       status: 'AVAILABLE' as BookStatus,
       dueDate: null,

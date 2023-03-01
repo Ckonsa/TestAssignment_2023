@@ -1,0 +1,15 @@
+<div class="container mat-elevation-z4">
+  <form [formGroup]="checkoutBookForm" (ngSubmit)="checkoutConfirm()" *ngIf="(book$ | async) as book">
+    <!--Got the basic form template from here: https://www.w3schools.com/howto/howto_css_contact_form.asp --->
+    <label>First Name</label>
+    <input type="text" placeholder="Your First Name..." formControlName="fname">
+
+    <label>Last Name</label>
+    <input type="text" placeholder="Your Last Name..." formControlName="lname">
+
+    <label>Book</label>
+    <input type="text" value="{{book.title}}" disabled>
+
+    <input type="submit" value="CHECKOUT">
+  </form>
+</div>

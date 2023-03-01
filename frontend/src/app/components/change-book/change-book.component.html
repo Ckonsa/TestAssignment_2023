@@ -3,23 +3,29 @@
     <!--Got the basic form template from here: https://www.w3schools.com/howto/howto_css_contact_form.asp --->
 
     <label>Title</label>
-    <input type="text" formControlName="title" value="{{book.title}}">
+    <input type="text" formControlName="title" ngModel="{{book.title}}">
 
     <label>Author</label>
-    <input type="text" formControlName="author" value="{{book.author}}">
+    <input type="text" formControlName="author" ngModel="{{book.author}}">
 
     <label>Genre</label>
-    <input type="text" formControlName="genre" value="{{book.genre}}">
+    <input type="text" formControlName="genre" ngModel="{{book.genre}}">
 
     <label>Year</label>
-    <input type="text" formControlName="year" value="{{book.year}}">
+    <input type="text" formControlName="year" ngModel="{{book.year}}">
 
     <label>Status</label>
-    <input type="text" formControlName="status" value="{{book.status}}">
+    <select formControlName="status" ngModel="{{book.status}}">
+      <option value="AVAILABLE">AVAILABLE</option>
+      <option value="BORROWED">BORROWED</option>
+      <option value="RETURNED">RETURNED</option>
+      <option value="DAMAGED">DAMAGED</option>
+      <option value="PROCESSING">PROCESSING</option>
+    </select>
 
     <label>Comment</label>
     <div *ngIf="book.comment !== null">
-      <input type="text" formControlName="comment" value="{{book.comment}}">
+      <input type="text" formControlName="comment" ngModel="{{book.comment}}">
     </div>
     <div *ngIf="book.comment === null">
       <input type="text" formControlName="comment">

@@ -27,7 +27,7 @@
 <div class="buttonsContainer">
   <button (click)="openDialog(checkout.borrowedBook.title)">Return</button>
   <div>
-    <button>Change</button>
+    <button [routerLink]="['/changeCheckout',checkout.id]">Change</button>
   </div>
 </div>
 </div>
