@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { BookService } from '../../services/book.service';
 import {Page, SortDirection} from '../../models/page';
 import { Book } from '../../models/book';
@@ -10,7 +10,6 @@ import {first, Observable} from 'rxjs';
   styleUrls: ['./books-list.component.scss']
 })
 export class BooksListComponent implements OnInit {
-
   books$: Observable<Page<Book> | Error>;
   pageNumber$: number = Number(1); // The default page is number 1 aka the first page
   pagesTotal$: number;

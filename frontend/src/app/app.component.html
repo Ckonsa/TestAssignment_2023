@@ -1,8 +1,17 @@
 <!-- Navbar -->
 <mat-toolbar>
-  <a mat-button color="primary" routerLink="/">Library</a>
-  <a mat-button color="primary" routerLink="/checkouts">Checkouts</a>
+  <div>
+    <a mat-button color="primary" routerLink="/">Library</a>
+    <a mat-button color="primary" routerLink="/checkouts">Checkouts</a>
+  </div>
+  <mat-button-toggle-group value="reader" id="userRole" (change)="userRoleChange($event.value)">
+    <mat-button-toggle value="reader" id="userRoleReader">Reader</mat-button-toggle>
+    <mat-button-toggle value="librarian">Librarian</mat-button-toggle>
+  </mat-button-toggle-group>
 </mat-toolbar>
 
 <!-- Body -->
+<!--Tried sending a user role variable to the book list component, but it would not work as wanted.-->
+<!--<app-books-list [userRole]="userRole"></app-books-list>-->
 <router-outlet></router-outlet>
+

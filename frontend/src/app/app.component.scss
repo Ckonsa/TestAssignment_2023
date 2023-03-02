@@ -1,3 +1,15 @@
 .mat-toolbar-row, .mat-toolbar-single-row {
-  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
 }
+mat-button-toggle-group {
+  font-size: 15px;
+}
+.mat-button-toggle-checked {
+  border: 1px #000 solid;
+  border-radius: 5px;
+  background-color: #8143c9;
+  color: #FFF;
+}
+
