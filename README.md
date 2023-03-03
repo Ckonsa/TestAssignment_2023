@@ -85,3 +85,9 @@ but should be able to save favorites and check out / return books (that they hav
 * Added forms to places which needed them (changing books/checkouts, checking out a book). There is a problem with communication between front- and backend. Deleting elements and adding new elements to database does not work.
 * Added more specific sorting in book and checkout list.
 * Added toggle button for two different users but could not send the toggle button value to components. So there is no functionality.
+
+Overall, I found that the test assignment was quite interesting. I had a lot of fun doing the tasks and trying out new things.
+In the past, I have not done much in Angular, so it was most definitely a great experience and I learned a lot.
+I wish I had completed more of the tasks, but school and other responsibilities take their own time.
+Sadly, many implementations were left without real functionality. There was an issue with modifying the database.
+I tried to find the fault which prevented me from adding, changing or deleting database elements, but could not find it.

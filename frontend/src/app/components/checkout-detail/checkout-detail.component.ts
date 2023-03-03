@@ -28,8 +28,7 @@ export class CheckoutDetailComponent implements OnInit{
       .pipe(map(params => params.id))
       .pipe(switchMap(id => this.checkoutService.getCheckout(id)));
   }
-
-  openDialog(title: string): void {
+  openDialog(title: string, checkoutId: string): void {
     // Got the code and idea from here: https://www.javachinna.com/angular-confirmation-dialog/
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
@@ -38,7 +37,7 @@ export class CheckoutDetailComponent implements OnInit{
     });
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
       if (confirmed) {
-        console.log('confirmed');
+        this.checkoutService.deleteCheckout(checkoutId);
       }
     });
   // Book's status and due date should be changed

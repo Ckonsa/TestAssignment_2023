@@ -17,13 +17,11 @@ export class CheckoutService {
     private http: HttpClient,
   ) {
   }
-
   getCheckouts(filter: Partial<PageRequest>): Observable<Page<Checkout> | Error> {
     const url = this.baseUrl + '/getCheckouts';
     const params = RestUtil.buildParamsFromPageRequest(filter);
     return this.http.get<Page<Checkout>>(url, {params});
   }
-
   getCheckout(checkoutId: string): Observable<Checkout | Error> {
     const url = this.baseUrl + '/getCheckout';
     const params = new HttpParams().set('checkOutId', checkoutId);

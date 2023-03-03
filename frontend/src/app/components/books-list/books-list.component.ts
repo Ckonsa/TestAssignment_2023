@@ -11,7 +11,7 @@ import {first, Observable} from 'rxjs';
 })
 export class BooksListComponent implements OnInit {
   books$: Observable<Page<Book> | Error>;
-  pageNumber$: number = Number(1); // The default page is number 1 aka the first page
+  pageNumber$ = Number(1); // The default page is number 1 aka the first page
   pagesTotal$: number;
   selectedSorting = '';
   selectedSortingBy = 'title';

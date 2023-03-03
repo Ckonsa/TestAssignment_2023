@@ -41,7 +41,7 @@ export class ChangeCheckoutComponent implements OnInit{
       borrowedBook: this.checkout.borrowedBook,
       checkedOutDate: this.checkout.checkedOutDate
     };
-    // If due date is changed then it should also change for the borrowed book
+    // If due date is changed then it should also be changed for the borrowed book
     this.checkoutService.saveCheckout(checkout);
   }
 
